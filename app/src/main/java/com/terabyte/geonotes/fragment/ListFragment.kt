@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.terabyte.geonotes.R
+import com.terabyte.geonotes.activity.GeoNoteDetailsActivity
 import com.terabyte.geonotes.databinding.FragmentListBinding
 import com.terabyte.geonotes.room.GeoNote
 import com.terabyte.geonotes.ui.GeoNoteAdapter
@@ -44,12 +45,14 @@ class ListFragment : Fragment() {
         }
 
         binding.buttonAddNote.setOnClickListener {
-            
+            val intent = GeoNoteDetailsActivity.newIntent(requireContext())
+            startActivity(intent)
         }
     }
 
     private fun onListItemClicked(geoNote: GeoNote) {
-
+        val intent = GeoNoteDetailsActivity.newIntent(requireContext(), geoNote)
+        startActivity(intent)
     }
 
     companion object {

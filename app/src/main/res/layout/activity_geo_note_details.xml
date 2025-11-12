@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/milk"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:padding="8dp">
 
         <ImageButton
             android:id="@+id/button_back"
@@ -29,7 +29,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="18sp"
-            tools:text="Neo geo note" />
+            tools:text="New geo note" />
 
         <ImageButton
             android:id="@+id/button_share"
@@ -49,6 +49,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="8dp">
+
+            <ImageButton
+                android:id="@+id/button_delete"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/color_indicator"

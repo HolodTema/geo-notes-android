@@ -13,4 +13,8 @@
     <string name="longitude">Longitude:</string>
     <string name="change_coordinates_on_the_map">Change coordinates on the map</string>
     <string name="geo_note_text">Geo note text</string>
+
+    <string name="note_details_mode_insert_header">New note</string>
+    <string name="note_details_mode_update_header">Edit note</string>
+
 </resources>
