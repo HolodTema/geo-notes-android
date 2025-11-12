@@ -9,7 +9,7 @@ appcompat = "1.7.1"
 material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
-room = "2.7.2"
+room = "2.8.3"
 ksp = "2.0.21-1.0.25"
 osmdroid = "6.1.20"
 

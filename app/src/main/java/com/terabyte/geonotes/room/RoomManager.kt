@@ -9,45 +9,19 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class RoomManager(context: Context) {
-    private val database: AppDatabase =
+    private val db: AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, ROOM_DB_NAME)
             .build()
 
-    fun getAllNotes(listener: (List<GeoNote>) -> Unit) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val deferred = async(Dispatchers.IO) {
-                database.geoNoteDao().getAll()
-            }
-            listener(deferred.await())
+    companion object {
+        private lateinit var instance: RoomManager
+
+        fun init(context: Context) {
+            instance = RoomManager(context)
+        }
+
+        fun get(): RoomManager {
+            return instance
         }
     }
-
-    fun createNote(geoNote: GeoNote, listener: () -> Unit) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val deferred = async(Dispatchers.IO) {
-                database.geoNoteDao().insert(geoNote)
-            }
-            listener()
-        }
-    }
-
-    fun updateNote(geoNote: GeoNote, listener: () -> Unit) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val deferred = async(Dispatchers.IO) {
-                database.geoNoteDao().update(geoNote)
-            }
-            listener()
-        }
-    }
-
-    fun deleteNote(geoNote: GeoNote, listener: () -> Unit) {
-        CoroutineScope(Dispatchers.Main).launch {
-            val deferred = async(Dispatchers.IO) {
-                database.geoNoteDao().delete(geoNote)
-            }
-            listener()
-        }
-    }
-
-
 }

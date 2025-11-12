@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import java.util.UUID
 
 @Dao
 interface GeoNoteDao {
@@ -13,7 +14,7 @@ interface GeoNoteDao {
     fun getAll(): List<GeoNote>
 
     @Query("SELECT * FROM geo_notes WHERE id = :id")
-    fun getById(id: String): GeoNote
+    fun getById(id: UUID): GeoNote
 
     @Insert
     fun insert(geoNote: GeoNote)
