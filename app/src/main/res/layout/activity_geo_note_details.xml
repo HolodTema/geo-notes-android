@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".activity.GeoNoteDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/milk"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/text_note_details_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="Neo geo note" />
+
+        <ImageButton
+            android:id="@+id/button_share"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_share" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="8dp">
+
+            <View
+                android:id="@+id/color_indicator"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/background_note_details_color_indicator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button_change_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/change_color"
+                app:layout_constraintBottom_toBottomOf="@id/color_indicator"
+                app:layout_constraintStart_toEndOf="@+id/color_indicator"
+                app:layout_constraintTop_toTopOf="@id/color_indicator"
+                tools:layout_editor_absoluteY="8dp" />
+
+            <TextView
+                android:id="@+id/text_caption_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/date"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/color_indicator" />
+
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/text_caption_date"
+                app:layout_constraintStart_toEndOf="@+id/text_caption_date"
+                tools:text="13.06.2025" />
+
+            <Button
+                android:id="@+id/button_change_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/change_date"
+                app:layout_constraintBaseline_toBaselineOf="@id/text_date"
+                app:layout_constraintStart_toEndOf="@+id/text_date" />
+
+            <TextView
+                android:id="@+id/text_caption_latitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/latitude"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_change_date"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <EditText
+                android:id="@+id/edit_latitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@+id/text_caption_latitude"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_caption_latitude"
+                app:layout_constraintTop_toTopOf="@+id/text_caption_latitude" />
+
+            <TextView
+                android:id="@+id/text_caption_longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/longitude"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_latitude" />
+
+            <EditText
+                android:id="@+id/edit_longitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@+id/text_caption_longitude"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_caption_longitude"
+                app:layout_constraintTop_toTopOf="@+id/text_caption_longitude" />
+
+            <Button
+                android:id="@+id/button_change_coordinates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/change_coordinates_on_the_map"
+                app:layout_constraintTop_toBottomOf="@+id/edit_longitude"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <EditText
+                android:id="@+id/edit_note_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints=""
+                android:hint="@string/geo_note_text"
+                android:inputType="textMultiLine"
+                app:layout_constraintTop_toBottomOf="@+id/button_change_coordinates"
+                tools:layout_editor_absoluteX="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

@@ -6,4 +6,11 @@
     <string name="list">List</string>
     <string name="map">Map</string>
     <string name="settings">Settings</string>
+    <string name="change_color">Change color</string>
+    <string name="date">Date:</string>
+    <string name="change_date">Change date</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="change_coordinates_on_the_map">Change coordinates on the map</string>
+    <string name="geo_note_text">Geo note text</string>
 </resources>
