@@ -6,10 +6,12 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.terabyte.geonotes.R
 import com.terabyte.geonotes.databinding.ActivityGeoNoteDetailsBinding
+import com.terabyte.geonotes.dialog.GeoNoteDateDialog
 import com.terabyte.geonotes.room.GeoNote
 import com.terabyte.geonotes.viewmodel.GeoNoteDetailsViewModel
 import java.text.SimpleDateFormat
@@ -138,6 +140,11 @@ class GeoNoteDetailsActivity : AppCompatActivity() {
                 backToMainActivity()
             }
         }
+
+        binding.buttonChangeDate.setOnClickListener {
+            val dialog = GeoNoteDateDialog.newInstance(viewModel.geoNote.date)
+            dialog.show(supportFragmentManager, DIALOG_TAG_DATE)
+        }
     }
 
     override fun onStop() {
@@ -159,9 +166,13 @@ class GeoNoteDetailsActivity : AppCompatActivity() {
 
         if (viewModel.activityMode == ActivityMode.ACTIVITY_MODE_INSERT_NOTE) {
             binding.textNoteDetailsMode.text = getString(R.string.note_details_mode_insert_header)
+            binding.buttonDelete.visibility = View.GONE
+            binding.buttonShare.visibility = View.INVISIBLE
         }
         if (viewModel.activityMode == ActivityMode.ACTIVITY_MODE_UPDATE_NOTE) {
             binding.textNoteDetailsMode.text = getString(R.string.note_details_mode_update_header)
+            binding.buttonDelete.visibility = View.VISIBLE
+            binding.buttonShare.visibility = View.VISIBLE
         }
     }
 
@@ -172,6 +183,8 @@ class GeoNoteDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val INTENT_KEY_GEO_NOTE = "intentKeyGeoNote"
+
+        private const val DIALOG_TAG_DATE = "dialogTagDate"
 
         fun newIntent(context: Context, geoNote: GeoNote? = null): Intent {
             val intent = Intent(context, GeoNoteDetailsActivity::class.java)
