@@ -7,9 +7,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.terabyte.geonotes.R
+import com.terabyte.geonotes.application.MyApplication
+import com.terabyte.geonotes.room.GeoNote
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel(private val application: Application) : AndroidViewModel(application) {
     val liveDataBottomNavChosenId = MutableLiveData<Int>(R.id.menuItemMap)
+    val liveDataNotes = MutableLiveData<List<GeoNote>>()
+
+    init {
+        (application as MyApplication).roomManager.getAllNotes { notes ->
+            liveDataNotes.value = notes
+        }
+    }
 
     class Factory(private val application: Application) :
         ViewModelProvider.AndroidViewModelFactory() {

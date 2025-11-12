@@ -41,6 +41,9 @@ android {
 }
 
 dependencies {
+    //osmdroid
+    implementation(libs.osmdroid)
+
     //room local DB
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
