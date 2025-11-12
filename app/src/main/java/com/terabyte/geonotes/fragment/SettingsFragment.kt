@@ -19,4 +19,9 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
+    companion object {
+        fun newInstance(): SettingsFragment {
+            return SettingsFragment()
+        }
+    }
 }

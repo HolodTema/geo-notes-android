@@ -41,6 +41,12 @@ android {
 }
 
 dependencies {
+    //to use activityViewModels function inside fragments
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+
     //osmdroid
     implementation(libs.osmdroid)
 

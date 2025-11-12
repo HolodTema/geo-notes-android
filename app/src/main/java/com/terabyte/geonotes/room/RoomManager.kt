@@ -13,6 +13,10 @@ class RoomManager(context: Context) {
         Room.databaseBuilder(context, AppDatabase::class.java, ROOM_DB_NAME)
             .build()
 
+    suspend fun getAllGeoNotes(): List<GeoNote> {
+        return db.geoNoteDao().getAll()
+    }
+
     companion object {
         private lateinit var instance: RoomManager
 
